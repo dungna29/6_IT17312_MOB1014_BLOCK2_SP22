@@ -27,8 +27,14 @@ public class B6_ToanTu3Ngoi {
             int namSinhBanThan = 2002, gioiTinh = 1;//Cố định 1 = Nam | 0 = Nữ
             //Yêu cầu nhập vào TÊN - NĂM SINH - GIỚI TÍNH có thể xác định được tên gọi như ở trên.
             //+1 điểm vào ASS1 ASS2 cho 4 bạn code nhanh và đúng nhất sử dụng toán tử 3 ngôi.
-            String tenBan;
-            int nsBan, gtBan;
+            String tenBan = "Hoàng";
+            int nsBan = 2002, gtBan=0;//1 = Nam | 0 = Nữ
+            
+            System.out.println((nsBan < namSinhBanThan && gtBan ==1)?"Anh":
+                    (nsBan < namSinhBanThan && gtBan ==0)?"Chị":
+                            (nsBan > namSinhBanThan && gtBan ==1)?"Em Trai":
+                                    (nsBan > namSinhBanThan && gtBan ==0)?"Em gái":"Bạn");
+            
 
     }
 }

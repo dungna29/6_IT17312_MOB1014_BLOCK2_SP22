@@ -1,4 +1,4 @@
-package BAI1_LamQuenVoiJava;
+package BAI_1_LamQuenVoiJava;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
