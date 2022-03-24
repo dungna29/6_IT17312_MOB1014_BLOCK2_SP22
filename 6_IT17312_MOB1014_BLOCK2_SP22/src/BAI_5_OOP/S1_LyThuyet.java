@@ -9,6 +9,7 @@ package BAI_5_OOP;
  * @author dungna29
  */
 public class S1_LyThuyet {
+
     /*
    LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG OOP
    1. Định nghĩa:
@@ -38,9 +39,56 @@ public class S1_LyThuyet {
             - Phương thức:  Phương thức hay còn gọi là hàm thành viên Một phương thức là một nhóm lệnh cùng nhau thực hiện một tác vụ
             - Từ khóa this trong C# là một biến tham chiếu được sử dụng để tham chiếu tới đối tượng của lớp hiện tại.
      */
-    /*
+ /*
        1. Đối tượng: Bàn,Laptop, Bút, Con chuột, Quạt Trần....., Chó, Mèo, Cá, Chim..., Sinh Viên, Giảng Viên, Người Yêu, Người Yêu Cũ, Bồ....
        2. Thông tin đối tượng: Giúp miêu tả rõ ràng đối tượng hơn. Trong lập trình không sử dụng từ THÔNG TIN mà đổi thành THUỘC TÍNH.
        3. Hành Động đối tượng: Trong lập trình được biểu diễn dưới dạng method là phương thức và luôn bắt đầu là động từ.
-    */
+     */
+    public static void main(String[] args) {
+        /*
+           Lưu thông tin của đối tượng Người Yêu Cũ
+           
+           Người yêu cũ 1:
+           Tên: Nguyễn Thị A
+           Ns: 2000
+           Vòng 1: 80
+           Vòng 2: 99
+           Vòng 3: 109
+           Sở thích: Thích ăn
+           Trường học: FPOLY
+        
+           Người yêu cũ 2:
+           Tên: Nguyễn Thị A
+           Ns: 2000
+           Vòng 1: 80
+           Vòng 2: 60
+           Vòng 3: 70
+           Sở thích: Ghét ăn
+           Trường học: BK
+         */
+        //Phần 1: Khai báo và khởi tạo đối tượng (Tên đối tượng và đối tượng nằm ở đâu)
+        NguoiYeuCu nyc1;//Khai báo 1 đối tượng
+        nyc1 = new NguoiYeuCu();//Khởi tạo đối tượng thì mới dùng được
+      
+        NguoiYeuCu nyc2 = new NguoiYeuCu("A", 2000, 80, 99, 100, "Thích ăn", "FPOLY");//Khởi tạo 1 đối tượng có giá trị ban đầu bằng contructor có tham số
+        
+        nyc1.inRaManHinh();//Không in ra gì vì đối tượng chưa được gán giá trị cho thuộc tính
+        nyc2.inRaManHinh();//In được vì có thể gán được giá
+        
+        //Phần 2: Gán giá tị cho thuộc tính bằng cách gọi phương thức set các thuộc tính để gán giá trị
+        nyc1.setTen("B");
+        nyc1.setNs(2002);
+        nyc1.setV1(80);
+        nyc1.setV2(60);
+        nyc1.setV3(70);
+        nyc1.setSoThich("Không thích ăn");
+        nyc1.setTruongHoc("BK");
+        
+        nyc1.inRaManHinh();
+        
+        //Phần 3: Lấy giá trị sử phươn thức get thuộc tính
+        System.out.println(nyc1.getTen() + nyc1.getSoThich());
+        
+
+    }
 }
