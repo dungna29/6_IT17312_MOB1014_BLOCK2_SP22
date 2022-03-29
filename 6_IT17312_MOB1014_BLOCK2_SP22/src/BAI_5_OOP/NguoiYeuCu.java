@@ -110,5 +110,5 @@ public class NguoiYeuCu {
     public void inRaManHinh(){
         System.out.printf("%s | %d | %f | %f | %f | %s | %s\n",ten,ns,v1,v2,v3,soThich,truongHoc);
     }
-    
+  
 }
