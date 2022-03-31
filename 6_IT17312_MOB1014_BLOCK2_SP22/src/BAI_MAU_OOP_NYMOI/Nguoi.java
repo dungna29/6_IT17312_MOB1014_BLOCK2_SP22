@@ -12,14 +12,16 @@ public class Nguoi {
     private String ten;
     private int namSinh;
     private int gioiTinh;
+    private String sdt;
 
     public Nguoi() {
     }
 
-    public Nguoi(String ten, int namSinh, int gioiTinh) {
+    public Nguoi(String ten, int namSinh, int gioiTinh, String sdt) {
         this.ten = ten;
         this.namSinh = namSinh;
         this.gioiTinh = gioiTinh;
+        this.sdt = sdt;
     }
 
     public String getTen() {
@@ -46,9 +48,20 @@ public class Nguoi {
         this.gioiTinh = gioiTinh;
     }
 
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
     @Override
     public String toString() {
-        return "Nguoi{" + "ten=" + ten + ", namSinh=" + namSinh + ", gioiTinh=" + gioiTinh + '}';
+        return "{" + "ten=" + ten + ", namSinh=" + namSinh + ", gioiTinh=" + gioiTinh + ", sdt=" + sdt + ' ';
     }
+
+    
+    
     
 }

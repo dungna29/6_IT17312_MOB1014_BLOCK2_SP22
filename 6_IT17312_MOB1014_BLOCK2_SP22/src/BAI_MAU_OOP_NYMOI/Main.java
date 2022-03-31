@@ -10,6 +10,11 @@ package BAI_MAU_OOP_NYMOI;
  */
 public class Main {
     public static void main(String[] args) {
-        //Triển khai chạy bài
+       NguoiYeuMoiService nym = new NguoiYeuMoiService();
+        do {
+            //nym.addNew();
+            nym.xuatDs();
+            nym.timKiem();
+        } while (true);
     }
 }

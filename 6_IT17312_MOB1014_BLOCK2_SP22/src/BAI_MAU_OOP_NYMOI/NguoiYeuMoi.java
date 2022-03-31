@@ -13,17 +13,20 @@ public class NguoiYeuMoi extends Nguoi{
     private double vong2;
     private double vong3;
     private String soThich;
+   
 
     public NguoiYeuMoi() {
     }
 
-    public NguoiYeuMoi(double vong1, double vong2, double vong3, String soThich, String ten, int namSinh, int gioiTinh) {
-        super(ten, namSinh, gioiTinh);
+    public NguoiYeuMoi(double vong1, double vong2, double vong3, String soThich, String ten, int namSinh, int gioiTinh, String sdt) {
+        super(ten, namSinh, gioiTinh, sdt);
         this.vong1 = vong1;
         this.vong2 = vong2;
         this.vong3 = vong3;
         this.soThich = soThich;
     }
+
+    
 
     public double getVong1() {
         return vong1;
@@ -57,9 +60,18 @@ public class NguoiYeuMoi extends Nguoi{
         this.soThich = soThich;
     }
 
+    public String getTrangThai() {
+        return vong3 < 50?"Bình thường":vong3 < 90?"Không bình thường":"Rất bình thường";
+    }
+
+//    public void setTrangThai(String trangThai) {
+//        this.trangThai = trangThai;
+//    }
+
+    
     @Override
     public String toString() {
-        return super.toString() + "NguoiYeuMoi{" + "vong1=" + vong1 + ", vong2=" + vong2 + ", vong3=" + vong3 + ", soThich=" + soThich + '}';
+        return super.toString() + " vong1=" + vong1 + ", vong2=" + vong2 + ", vong3=" + vong3 + ", soThich=" + soThich + " " + getTrangThai() + '}';
     }
     
 }
