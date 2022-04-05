@@ -10,7 +10,7 @@ package BAI_MAU_OOP_NYMOI;
  */
 public class Main {
     public static void main(String[] args) {
-       NguoiYeuMoiService nym = new NguoiYeuMoiService();
+       NguoiYeuMoiService_Luoi nym = new NguoiYeuMoiService_Luoi();
         do {
             //nym.addNew();
             nym.xuatDs();

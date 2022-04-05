@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author dungna29
  */
 //Triển khai các chức năng quản lý đối tượng
-public class NguoiYeuMoiService {
+public class NguoiYeuMoiService_Luoi {
 
     //Các biến toàn cục trình bên lên đầu
     Scanner _sc = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class NguoiYeuMoiService {
     NguoiYeuMoi _NYMoi;
     String _input;
 
-    public NguoiYeuMoiService() {
+    public NguoiYeuMoiService_Luoi() {
         _lstNYMoi = new ArrayList<>();
         fake5Data();//Khi lớp service được khởi tạo thì danh sách sẽ có 6 phần tử
     }
@@ -39,24 +39,7 @@ public class NguoiYeuMoiService {
         System.out.print("Mời bạn chọn số lượng: ");
         _input = _sc.nextLine();
         for (int i = 0; i < Integer.parseInt(_input); i++) {
-            _NYMoi = new NguoiYeuMoi();//Mỗi lần thêm mới thì phải khởi tạo mới đối tượng
-            System.out.print("Mời nhập tên: ");
-            _NYMoi.setTen(_sc.nextLine());
-            System.out.print("Mời nhập sdt: ");
-            _NYMoi.setSdt(_sc.nextLine());
-            System.out.print("Mời nhập ns: ");
-            _NYMoi.setNamSinh(Integer.parseInt(_sc.nextLine()));
-            System.out.print("Mời nhập giới tính (1 = Nam | 0 = Nữ): ");
-            _NYMoi.setGioiTinh(Integer.parseInt(_sc.nextLine()));
-            System.out.print("Mời nhập v1: ");
-            _NYMoi.setVong1(Double.parseDouble(_sc.nextLine()));
-            System.out.print("Mời nhập v2: ");
-            _NYMoi.setVong2(Double.parseDouble(_sc.nextLine()));
-            System.out.print("Mời nhập v3: ");
-            _NYMoi.setVong3(Double.parseDouble(_sc.nextLine()));
-            System.out.print("Mời nhập sở thích: ");
-            _NYMoi.setSoThich(_sc.nextLine());
-            _lstNYMoi.add(_NYMoi);//Sau khi nhập giá trị vào 1 đối tượng tiến hành add đối tượng vào trong LIST.
+            _lstNYMoi.add(new NguoiYeuMoi(Double.parseDouble(getInputValue("v1")), Double.parseDouble(getInputValue("v2")), Double.parseDouble(getInputValue("v3")), getInputValue("sở thích"), getInputValue("tên"), Integer.parseInt(getInputValue("năm sinh")), Integer.parseInt(getInputValue("giới tính")), getInputValue("sdt")));
         }
     }
 
@@ -122,4 +105,19 @@ public class NguoiYeuMoiService {
         }
         System.out.println("Không tìm thấy");
     }
+    //Các phương thức giúp code lười hơn
+    public String getInputValue(String msg){
+        System.out.printf("Mời bạn nhập %s: ",msg);
+        return _sc.nextLine();
+    }
+    public int getIndex(){
+        _input = getInputValue("sdt");
+        for (int i = 0; i < _lstNYMoi.size(); i++) {
+            if (_lstNYMoi.get(i).getSdt().equals(_input)) {
+                return i;
+            }
+        }
+       return -5;
+    }
+
 }
