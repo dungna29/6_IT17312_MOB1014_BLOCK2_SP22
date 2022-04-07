@@ -51,73 +51,62 @@ public class NguoiYeuMoiService_Luoi {
 
     //Khi đã biết làm chức năng tìm kiếm 1 đối tượng thì chức năng XOÁ, SỬA là như nhau chỉ khác hành động bên trong.
     public void timKiem() {
-        System.out.print("Mời bạn nhập sdt: ");
-        _input = _sc.nextLine();
-        for (int i = 0; i < _lstNYMoi.size(); i++) {
-            if (_lstNYMoi.get(i).getSdt().equals(_input)) {
-                System.out.println(_lstNYMoi.get(i).toString());
-                //break;
-                //Vì sao phải cần break
-                //Tìm cách in ra thông báo khi không tìm thấy.
-                return;
-            }
+        int temp = getIndex();
+        if (temp == -5) {
+            System.out.println("Không tìm thấy");
+            return;
         }
-        System.out.println("Không tìm thấy");
+        System.out.println(_lstNYMoi.get(temp).toString());
     }
 
     public void xoaNy() {
-        System.out.print("Mời bạn nhập sdt: ");
-        _input = _sc.nextLine();
-        for (int i = 0; i < _lstNYMoi.size(); i++) {
-            if (_lstNYMoi.get(i).getSdt().equals(_input)) {
-                _lstNYMoi.remove(i);
-                System.out.println("Đã xoá thành công");
-                return;
-            }
+        int temp = getIndex();
+        if (temp == -5) {
+            System.out.println("Không tìm thấy");
+            return;
         }
-        System.out.println("Không tìm thấy");
+        _lstNYMoi.remove(temp);
+        System.out.println("Xoá thành công");
     }
 
     public void suaNy() {
-        System.out.print("Mời bạn nhập sdt: ");
-        _input = _sc.nextLine();
-        for (int i = 0; i < _lstNYMoi.size(); i++) {
-            if (_lstNYMoi.get(i).getSdt().equals(_input)) {
-                System.out.println("1. Sửa tên. ");
-                System.out.println("2. Sửa năm sinh ");
-                System.out.print("Mời bạn chọn chức năng: ");
-                _input = _sc.nextLine();
-                switch (_input) {
-                    case "1":
-                        System.out.print("Mời nhập tên: ");
-                        _lstNYMoi.get(i).setTen(_sc.nextLine());
-                        break;
-                    case "2":
-
-                        break;
-                    default:
-                        System.out.println("Chọn sai chức năng");
-                }
-                System.out.println("Đã sửa thành công");
-
-                return;
-            }
+        int temp = getIndex();
+        if (temp == -5) {
+            System.out.println("Không tìm thấy");
+            return;
         }
-        System.out.println("Không tìm thấy");
+        System.out.println("1. Sửa tên. ");
+        System.out.println("2. Sửa năm sinh ");
+        System.out.print("Mời bạn chọn chức năng: ");
+        _input = _sc.nextLine();
+        switch (_input) {
+            case "1":
+                _lstNYMoi.get(temp).setTen(getInputValue("tên"));
+                break;
+            case "2":
+                
+                break;
+            default:
+                System.out.println("Chọn sai chức năng");
+        }
+        System.out.println("Đã sửa thành công");
+
     }
+
     //Các phương thức giúp code lười hơn
-    public String getInputValue(String msg){
-        System.out.printf("Mời bạn nhập %s: ",msg);
+    public String getInputValue(String msg) {
+        System.out.printf("Mời bạn nhập %s: ", msg);
         return _sc.nextLine();
     }
-    public int getIndex(){
+
+    public int getIndex() {
         _input = getInputValue("sdt");
         for (int i = 0; i < _lstNYMoi.size(); i++) {
             if (_lstNYMoi.get(i).getSdt().equals(_input)) {
                 return i;
             }
         }
-       return -5;
+        return -5;
     }
 
 }
